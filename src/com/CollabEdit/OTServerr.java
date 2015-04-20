@@ -141,7 +141,9 @@ public class OTServerr {
     	if(containsValue(message, "CodeFromEditor",true))
     	{
     		System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-    		Boolean check = Authentication.getInstance().saveData(message.getJson().getString("from"),message.getJson().getString("file"), message.getJson().getString("CodeFromEditor"));
+    		String ppl = message.getJson().getString("from");
+    		ppl = ppl +", "+message.getJson().getString("email1");
+    		Boolean check = Authentication.getInstance().saveData(ppl,message.getJson().getString("file"), message.getJson().getString("CodeFromEditor"));
     		System.out.println("KAAAAAAAAAAAAAAAAAAAAAAAAAM hooooooooooooooo gyaaaaaaaaaaaaaa "+check);
     		
     		sendMessageToAll(message,userSession.get(message.getJson().getString("from")));

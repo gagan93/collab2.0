@@ -26,12 +26,13 @@ public class Logout extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String value = request.getParameter("logout");
-		HttpSession session = request.getSession();
+		HttpSession session = request.getSession(false);
 		if(value.equals("logout"))
 		{
+			
 			System.out.println("&&&&&&&&IN SIDE LOGOUT&&&&&&&&&&&&&");
-			 session.invalidate();
-			 response.sendRedirect("../CollabEdit/");
+			if(session!=null)
+				session.invalidate();
 			 return; // <--- Here.
 		}
 	}

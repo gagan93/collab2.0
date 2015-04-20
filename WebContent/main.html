@@ -7,13 +7,12 @@
 	<script
 		src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
-<script src="../CollabEdit/scripts/main2.js"></script>
 </head>
 <link rel="stylesheet"
 	href="../CollabEdit/CodeMirror/lib/codemirror.css">
 <link rel="stylesheet" href="../CollabEdit/CodeMirror/theme/mbo.css">
 <style type="text/css">
-* {
+ {
 	padding: 0px;
 	margin: 0px;
 }
@@ -45,7 +44,7 @@ html,body {
 	
 }
 
-#saveButton,#logout {
+#saveButton,#logoutButton {
 	border: 0px solid white;
 	background-color: rgb(86,164,246);
 	color: white;
@@ -80,7 +79,7 @@ html,body {
 	width: 32px;
 	height: 32px;
 }
-#logout
+#logoutButton
 {
 	float: right;
 }
@@ -118,7 +117,7 @@ html,body {
 		<div id='right'>
 			<div id='save'>
 				<button id='saveButton' onClick="saveChanges()">Save Changes</button>
-				<button id='logout' onClick="logout()">Logout</button>
+				<input type='button' value='Logout' id='logoutButton'>
 			</div>
 			<div id='usersOnline'></div>
 		</div>
@@ -126,7 +125,6 @@ html,body {
 		<div class="noticeForOldData">
 		<div class="divForBlueColor">
 			<div class="noticeText">
-
 			</div>
 		</div>
 	</div>

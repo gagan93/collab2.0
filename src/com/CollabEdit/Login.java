@@ -5,7 +5,6 @@ import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -32,9 +31,6 @@ public class Login extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("LoggedInUserEmail", email);
 			session.setMaxInactiveInterval(30*60);
-			Cookie userName = new Cookie("LoggedInUser", email);
-            userName.setMaxAge(30*60);
-            response.addCookie(userName);
 			try{
 				json.put("response", "success");
 				//System.out.println("sending as a response this: "+json);

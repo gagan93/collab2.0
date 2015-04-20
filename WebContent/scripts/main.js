@@ -18,14 +18,14 @@ $.ajax({
 			type: 'POST',
 			async : false,
 			success: function(data){
-				alert("askking from db successfull");
+				//alert("askking from db successfull");
 			}
 		})
 		.done(function(data,status) {
-			alert("adding to teaxtarea data: "+data);
+//			alert("adding to teaxtarea data: "+data);
 			if(data['data']!=undefined)
 			{
-				alert("in the IF condition: adding this: "+data['data']);
+	//			alert("in the IF condition: adding this: "+data['data']);
 				cm.setValue(data['data']);
 			}
 			else
@@ -89,11 +89,17 @@ function saveChanges()
 					'file' : file,
 					'from' : from
 				};
+	for(var i  in to)
+	{
+//		alert("value of i: "+i);
+		json[i.valueOf()] = to[i];
+	}
+
 	console.log("-----saving-- this: ", json);
 	//alert("data: "+json);
 	this.send(json);
 /* 		$.ajax({
-		url: '/TryKrRahaHu/SaveData',
+		url:s '/TryKrRahaHu/SaveData',
 		method : "POST",
 		data: json
 	}).done(function(data,status) {
@@ -109,23 +115,21 @@ function saveChanges()
 		})
 */	}
 
-function logout(){
+$('#logoutButton').click(function()
+{
 	alert("logout wala");
 	$.ajax({
 		url: '/CollabEdit/Logout',
 		method : "POST",
 		data: 
 		{
-			logout: logout
+			"logout": "logout"
 		}
 	}).done(function(data,status) {
+		console.log('back from server');
+		window.location.assign("index.html");
 		});
-}
-
-
-
-
-
+});
 require([ 'dojo/on' ], function(on) {
 	cm.on('change', function(arg1, arg2) {
 		actionToPerform = arg2.origin;

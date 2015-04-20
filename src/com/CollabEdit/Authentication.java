@@ -419,7 +419,8 @@ public class Authentication
 	    {
 			Class.forName(classloading);
 			con = DriverManager.getConnection(dbURL, user, Password );
-			sql = "select data from [CollabEditDB].[dbo].[DataTable] where UserId = '"+username+"' and FileName = '"+file+"'";
+
+			sql = "select data from [CollabEditDB].[dbo].[DataTable] where UserId LIKE '%"+username+"%' and FileName = '"+file+"'";
 			
 			stmt = con.createStatement();
 			
